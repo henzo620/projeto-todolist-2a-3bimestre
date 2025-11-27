@@ -9,6 +9,9 @@
 // - Efeitos visuais (sombra, gradientes simulados, cantos arredondados, separadores)
 // Tudo dentro de um único App.js.
 
+
+import { Platform } from 'react-native';
+
 import React, { useMemo, useRef, useState, useEffect } from 'react';
 import {
   View,
@@ -584,6 +587,32 @@ export default function App() {
 
 // ---------- ESTILOS ----------
 const styles = StyleSheet.create({
+
+app: {
+  flex: 1,
+  backgroundColor: theme.colors.bg,
+  maxWidth: Platform.OS === 'web' ? 1200 : '100%',
+  alignSelf: Platform.OS === 'web' ? 'center' : 'auto',
+},
+categoryGrid: {
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: Platform.OS === 'web' ? 'flex-start' : 'space-between',
+  gap: Platform.OS === 'web' ? 20 : theme.spacing(1.5),
+},
+categoryCard: {
+  width: Platform.OS === 'web'
+    ? '23%' // 4 colunas no web
+    : (width - theme.spacing(4) - theme.spacing(1.5)) / 2,
+  cursor: Platform.OS === 'web' ? 'pointer' : 'default',
+},
+footer: {
+  position: Platform.OS === 'web' ? 'fixed' : 'relative',
+  bottom: Platform.OS === 'web' ? 0 : 'auto',
+  width: Platform.OS === 'web' ? '100%' : 'auto',
+},
+
+
   app: {
     flex: 1,
     backgroundColor: theme.colors.bg,
