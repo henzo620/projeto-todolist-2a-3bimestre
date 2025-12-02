@@ -82,18 +82,6 @@ const theme = {
 // -----------------------------------------------------------------------------
 const destaqueData = [
   {
-    titulo: 'Pontes que transformam',
-    descricao: 'Esporte conectando histórias e futuro.',
-    imagem: 'https://images.unsplash.com/photo-1521417534086-0a4121c0d2d1?auto=format&fit=crop&w=1200&q=80',
-    tag: 'Inspiração',
-  },
-  {
-    titulo: 'Turma de fundamentos',
-    descricao: 'Inscrições abertas para jovens atletas.',
-    imagem: 'https://images.unsplash.com/photo-1609332967210-0e4c3f3b8d3b?auto=format&fit=crop&w=1200&q=80',
-    tag: 'Treino',
-  },
-  {
     titulo: 'Mentoria com Ana B.',
     descricao: 'Direção e ação para crescer com propósito.',
     imagem: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
@@ -102,7 +90,8 @@ const destaqueData = [
   {
     titulo: 'Torneio Sub-18',
     descricao: 'Seleção aberta para atletas jovens.',
-    imagem: 'https://images.unsplash.com/photo-1590080877037-7c1f9b6c5c1d?auto=format&fit=crop&w=1200&q=80',
+    // imagem atualizada para URL externa fornecida pelo usuário
+    imagem: 'https://st.depositphotos.com/1020070/55876/v/450/depositphotos_558760594-stock-illustration-basketball-championship-icon-player-sport.jpg',
     tag: 'Oportunidade',
   },
 ];
