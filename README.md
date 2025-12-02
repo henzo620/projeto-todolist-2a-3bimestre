@@ -951,64 +951,56 @@ const ObjetivoAppScreen = ({ go }) => {
 };
 
 // SOBRE MIM — nova tela acionada pelo botão “Sobre mim” no topo
-const SobreMimScreen = ({ go }) => {
-  return (
-    <View style={styles.sobreMimScreen}>
-      <Header
-        title="Sobre mim"
-        subtitle="Conheça o criador do Hoop Bridge"
-        onBack={() => go('home')}
-        tone={theme.colors.text}
-        onAbout={() => {}}
-      />
+const SobreMimScreen = ({ go }) => (
+  <View style={styles.screen}>
+    <Header
+      title="Sobre mim"
+      subtitle="Conheça o criador do Hoop Bridge"
+      onBack={() => go('home')}
+      tone={theme.colors.text}
+      onAbout={() => {}}
+    />
+    <ScrollView style={styles.scroll}>
+      
+      {/* Foto no topo */}
+      <View style={styles.photoSection}>
+        <Image
+          source={require('./assets/IMG-20250904-WA0014.jpg')} // caminho da sua foto
+          style={styles.profilePhoto}
+        />
+        <Text style={styles.photoLabel}>Henzo Lucas Rizzo de Souza</Text>
+      </View>
 
-      <ScrollView style={styles.scroll}>
-        <GradientCard
-          title="Henzo Lucas Rizzo de Souza"
-          subtitle="Jovem em formação, unindo esporte e propósito"
-          leftIcon="account"
-          colors={[theme.colors.card, theme.colors.softCard]}
-        />
-
-        <SectionHeader icon="calendar" color={theme.colors.text} title="Informações pessoais" />
-        <InfoCard
-          icon="cake-variant"
-          color={theme.colors.ok}
-          title="Data de nascimento"
-          desc="06/06/2009"
-        />
-        <InfoCard
-          icon="school-outline"
-          color={theme.colors.blue}
-          title="Escola"
-          desc="ETEC Professor Milton Gazzetti"
-        />
-        <InfoCard
-          icon="account-badge"
-          color={theme.colors.secondary}
-          title="Nome completo"
-          desc="Henzo Lucas Rizzo de Souza"
-        />
-
-        <SectionHeader icon="bullseye-arrow" color={theme.colors.text} title="Intenção do projeto" />
-        <View style={styles.infoBlock}>
-          <Text style={styles.infoBlockText}>
-            Criar uma ponte entre o esporte e a transformação social, usando o basquete como ferramenta
-            de conexão, disciplina e evolução. Simples, direto e com impacto real.
-          </Text>
+      {/* Informações pessoais */}
+      <View style={styles.sectionHeader}>
+        <View style={styles.sectionLeft}>
+          <MaterialCommunityIcons name="calendar" size={22} color={theme.colors.text} />
+          <Text style={[styles.sectionTitle, { color: theme.colors.text }]}>Informações pessoais</Text>
         </View>
+      </View>
+      <InfoCard icon="cake-variant" color={theme.colors.ok} title="Data de nascimento" desc="06/06/2009" />
+      <InfoCard icon="school-outline" color={theme.colors.blue} title="Escola" desc="ETEC Professor Milton Gazzetti" />
+      <InfoCard icon="account-badge" color={theme.colors.secondary} title="Nome completo" desc="Henzo Lucas Rizzo de Souza" />
 
-        <SectionHeader icon="image" color={theme.colors.text} title="Espaço para foto" />
-        <View style={styles.photoPlaceholder}>
-          <MaterialCommunityIcons name="image-outline" size={36} color={theme.colors.subtext} />
-          <Text style={styles.photoPlaceholderText}>Adicione sua foto aqui depois</Text>
+      {/* Intenção do projeto */}
+      <View style={styles.sectionHeader}>
+        <View style={styles.sectionLeft}>
+          <MaterialCommunityIcons name="bullseye-arrow" size={22} color={theme.colors.text} />
+          <Text style={[styles.sectionTitle, { color: theme.colors.text }]}>Intenção do projeto</Text>
         </View>
+      </View>
+      <View style={styles.infoBlock}>
+        <Text style={styles.infoBlockText}>
+          Criar uma ponte entre o esporte e a transformação social, usando o basquete como ferramenta de
+          conexão, disciplina e evolução. Simples, direto e com impacto real.
+        </Text>
+      </View>
 
-        <View style={styles.spaceBottom} />
-      </ScrollView>
-    </View>
-  );
-};
+      <View style={styles.spaceBottom} />
+    </ScrollView>
+  </View>
+);
+
 
 // -----------------------------------------------------------------------------
 // Root (switch de navegação entre as telas)
@@ -1163,21 +1155,24 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: theme.colors.bg,
   },
-  photoPlaceholder: {
-    marginHorizontal: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-    padding: theme.spacing(3),
-    borderRadius: theme.radius.md,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-    backgroundColor: theme.colors.card,
-    alignItems: 'center',
-    gap: theme.spacing(1),
-  },
-  photoPlaceholderText: {
-    color: theme.colors.subtext,
-    fontSize: 13,
-  },
+photoSection: {
+  alignItems: 'center',
+  marginVertical: 20,
+},
+profilePhoto: {
+  width: 160,
+  height: 160,
+  borderRadius: 80, // deixa redondo
+  borderWidth: 3,
+  borderColor: theme.colors.border,
+},
+photoLabel: {
+  marginTop: 12,
+  color: theme.colors.text,
+  fontSize: 18,
+  fontWeight: '700',
+},
+
 
   // Header
   header: {
