@@ -1056,8 +1056,6 @@ const styles = StyleSheet.create({
   app: {
     flex: 1,
     backgroundColor: theme.colors.bg,
-    maxWidth: Platform.OS === 'web' ? 1200 : '100%',
-    alignSelf: Platform.OS === 'web' ? 'center' : 'auto',
   },
 
   // Telas base
@@ -1220,12 +1218,17 @@ photoLabel: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: theme.spacing(1.5),
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
+    paddingHorizontal: theme.spacing(2),
+    width: '100%',
   },
   categoryCard: {
-    width: (width - theme.spacing(4) - theme.spacing(1.5)) / 2,
+    width: Platform.OS === 'web' ? 280 : (width - theme.spacing(6)) / 2.2,
+    height: Platform.OS === 'web' ? 'auto' : (width - theme.spacing(6)) / 2.2,
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: theme.colors.card,
     borderRadius: theme.radius.lg,
     padding: theme.spacing(2),
@@ -1365,7 +1368,9 @@ photoLabel: {
     paddingHorizontal: theme.spacing(2),
     borderWidth: 1,
     borderColor: theme.colors.border,
-    width: (width - theme.spacing(4) - theme.spacing(1.5)) / 2 - 6,
+    width: Platform.OS === 'web'
+      ? (1200 - theme.spacing(4) - theme.spacing(1.5)) / 3 - 6
+      : (width - theme.spacing(4) - theme.spacing(1.5)) / 2 - 6,
     ...theme.shadow.soft,
   },
   statIconWrap: {
